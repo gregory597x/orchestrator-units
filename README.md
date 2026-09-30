@@ -10,4 +10,4 @@ published with it.
 
 | Unit | What |
 |---|---|
-| [`units/extract`](units/extract) | Tiered text extraction: pdftotext/pandoc → Apple Vision OCR → local vision model |
+| [`extract`](extract) | Tiered text extraction: pdftotext/pandoc → Apple Vision OCR → local vision model |

@@ -1,12 +1,15 @@
 # CLAUDE.md
 
-Private workers for the orchestrator (github.com/gregory597x/orchestrator).
-This repository exists for licensing: units here depend on copyleft or
-otherwise incompatibly licensed software, or are not meant to be published.
-Code that is compatible with Apache-2.0 and fine to publish belongs in the
-public orchestrator repository instead. Each unit lives in `units/<name>/`
-as its own package and talks to the orchestrator only through its job API
-(`docs/job-api.md` there).
+Private modules for the orchestrator (github.com/gregory597x/orchestrator).
+This repository holds work that is not published: MRI-related work, and
+modules built on copyleft or otherwise incompatibly licensed software (e.g.
+`extract/`, which uses AGPL PyMuPDF). Code that is Apache-2.0-compatible and
+fine to publish belongs in the public orchestrator repository instead.
+
+Each module lives in its own top-level directory (`<name>/`) as its own
+package and talks to the orchestrator only through its HTTP job API
+(`docs/job-api.md` there). Nothing here is imported by the orchestrator, and
+nothing here imports it.
 
 ## Rules
 
@@ -24,5 +27,5 @@ as its own package and talks to the orchestrator only through its job API
 ## Checks (per unit; CI runs the same)
 
 ```sh
-cd units/extract && pip install -e '.[dev]' && ruff format --check . && ruff check . && pytest
+cd extract && pip install -e '.[dev]' && ruff format --check . && ruff check . && pytest
 ```
