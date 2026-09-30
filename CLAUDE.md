@@ -1,8 +1,12 @@
 # CLAUDE.md
 
 Private workers for the orchestrator (github.com/gregory597x/orchestrator).
-Each unit lives in `units/<name>/` as its own package and talks to the
-orchestrator only through its job API (`docs/job-api.md` there).
+This repository exists for licensing: units here depend on copyleft or
+otherwise incompatibly licensed software, or are not meant to be published.
+Code that is compatible with Apache-2.0 and fine to publish belongs in the
+public orchestrator repository instead. Each unit lives in `units/<name>/`
+as its own package and talks to the orchestrator only through its job API
+(`docs/job-api.md` there).
 
 ## Rules
 

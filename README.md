@@ -1,9 +1,12 @@
 # orchestrator-units
 
-Private workers ("units") for the public
-[orchestrator](https://github.com/gregory597x/orchestrator). Each unit talks
-to it only through the job API, so domain logic and copyleft dependencies
-(e.g. PyMuPDF, AGPL) stay out of the public repository.
+Workers ("units") for the public
+[orchestrator](https://github.com/gregory597x/orchestrator) whose licensing
+keeps them out of it: they depend on copyleft or otherwise incompatibly
+licensed software (e.g. PyMuPDF, AGPL), or are not meant to be published.
+Each unit talks to the orchestrator only through its job API, so none of this
+code is linked into the Apache-2.0 orchestrator and none of it has to be
+published with it.
 
 | Unit | What |
 |---|---|
