@@ -1,0 +1,23 @@
+# Container worker only; the host and gpu roles run on the Mac (see README).
+# Mount every source tree read-only, and the result store read-write, then
+# tell the worker how host paths map to mount points.
+services:
+  extract-container:
+    build: .
+    environment:
+      ORCH_URL: http://host.docker.internal:8780
+      ORCH_TOKEN_FILE: /run/secrets/orch_token
+      EXTRACT_STORE: /store
+      EXTRACT_PATH_MAP: "/Volumes/SOURCE_DRIVE=/src/drive,/Users/ME/Documents=/src/docs,/Users/ME/extract-store=/store"
+    volumes:
+      - /Volumes/SOURCE_DRIVE:/src/drive:ro
+      - /Users/ME/Documents:/src/docs:ro
+      - /Users/ME/extract-store:/store
+    secrets: [orch_token]
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    deploy:
+      replicas: 2
+    restart: unless-stopped
+secrets:
+  orch_token:
+    file: ./secrets/orch_token
